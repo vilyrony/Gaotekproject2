@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enviro Test Solutions - Ambient Air Quality Monitoring</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Typography and Base */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb; /* Light background for professionalism */
+        }
+
+        /* Navigation Enhancements */
+        .nav-link {
+            position: relative;
+            padding: 0.5rem 0;
+            color: white;
+            transition: color 0.3s ease;
+            font-weight: 600;
+        }
+        .nav-link:hover {
+            color: #60a5fa; /* Light blue on hover */
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #60a5fa;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 80%; /* Underline transition */
+        }
+
+        /* Hero Section Background & Overlay */
+        .bg-hero {
+            background-image: url('https://images.unsplash.com/photo-1518609878373-06d740f60d8b?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .bg-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Darker overlay for better text contrast */
+            background: linear-gradient(rgba(20, 29, 63, 0.7), rgba(20, 29, 63, 0.8)); 
+        }
+
+        /* Hover Effect Enhancement */
+        .hover-scale {
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+        }
+        .hover-scale:hover {
+            transform: translateY(-5px) scale(1.01); /* More pronounced lift and scale */
+            box-shadow: 0 15px 30px rgba(45, 55, 72, 0.15); /* Deeper, professional shadow */
+        }
+        
+        /* Card image styling */
+        .hover-scale img {
+            transition: transform 0.5s ease;
+        }
+        .hover-scale:hover img {
+            transform: scale(1.05); /* Subtle zoom on image within card */
+        }
+
+        /* Animation/Transition Enhancement */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Slower, smoother animation */
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Slideshow Styling */
+        .slideshow {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+        .slide {
+            display: none;
+            opacity: 0;
+            transition: opacity 1s ease-in-out; /* Slower transition for case studies */
+        }
+        .slide.active {
+            display: block;
+            opacity: 1;
+        }
+
+        /* Scroll to Top */
+        #scrollToTop {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            z-index: 50;
+        }
+        #scrollToTop.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <header class="bg-blue-900 text-white py-4 sticky top-0 z-50 shadow-xl">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <h1 class="text-3xl font-extrabold tracking-tight"><img src="logo.png"></h1>
+            <nav class="space-x-8 hidden md:block">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#case-studies" class="nav-link">Case Studies</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="bg-hero h-[50vh] flex items-center justify-center text-white relative">
+        <div class="text-center z-10 p-6 fade-in">
+            <h2 class="text-5xl font-extrabold mb-4 drop-shadow-lg">Track Real-Time Air Quality</h2>
+            <p class="text-xl mb-8 font-light max-w-2xl mx-auto">Accurate, automated insights to support compliance, sustainability, and public health initiatives for B2B applications across North America.</p>
+            <a href="#contact" class="bg-blue-600 text-white px-8 py-4 rounded-full font-bold uppercase text-lg shadow-lg hover:bg-blue-700 transition hover-scale inline-block">Request a Demo</a>
+        </div>
+    </section>
+
+    <main class="container mx-auto px-6 py-16">
+        <section class="mb-16 fade-in">
+            <h2 class="text-4xl font-bold mb-6 text-gray-800 border-b-2 border-blue-600 pb-2">Advanced Ambient Air Quality Monitoring for Compliance, Clarity, and Control</h2>
+            <div class="grid md:grid-cols-3 gap-8 items-center">
+                <div class="md:col-span-2">
+                    <p class="text-lg text-gray-700 mb-4">Accurate ambient air quality monitoring is essential for identifying pollution trends, supporting compliance efforts, and enabling proactive environmental management. Real-time data on key pollutants such as PM2.5, PM10, NOx, SO₂, CO, and O₃ allows industries, municipalities, and environmental agencies to make informed decisions that protect public health and meet regulatory standards.</p>
+                    <p class="text-lg text-gray-700 mb-4">Built for reliability and long-term deployment, these systems integrate cloud-based connectivity and advanced sensors to deliver high-resolution environmental insights. Designed for B2B applications, these solutions help organizations across North America streamline emissions reporting and improve operational transparency.</p>
+                    <p class="text-lg text-gray-700 font-semibold text-blue-800">Enviro Test Solutions supports this mission through innovative technologies, tailored implementation strategies, and close collaboration with partners like GAO Tek and GAO RFID. From system integration to post-deployment support, the company ensures every client receives expert guidance and scalable solutions aligned with their regulatory and operational needs. Enviro Test Solutions continues to advance environmental testing with a focus on performance, usability, and data integrity.</p>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1542435503-9d29d8a25c34?q=80&w=2070&auto=format&fit=crop" alt="Environmental Science" class="rounded-xl shadow-2xl hover-scale">
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="mb-16 fade-in">
+            <h2 class="text-4xl font-bold mb-8 text-center text-gray-800">Core System Components</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-xl hover-scale">
+                    <h3 class="text-2xl font-bold mb-4 text-blue-700 border-b pb-2">Hardware Solutions</h3>
+                    <img src="https://images.unsplash.com/photo-1580587771525-78b9f0f89f76?q=80&w=2070&auto=format&fit=cover" alt="Monitoring Hardware" class="w-full h-48 object-cover rounded-lg mb-6">
+                    <ul class="list-disc pl-5 text-gray-700 space-y-3">
+                        <li>**High-Precision Sensors:** Utilized with Chemical and Gas Sensors for accurate detection of particulate matter and harmful gases in ambient air environments.</li>
+                        <li>**Weatherproof Enclosures:** Best integrated with Environmental & Agriculture Sensors to ensure robust outdoor deployment and continuous environmental data capture.</li>
+                        <li>**Telemetry Modules:** Enabled through NB-IoT End Devices for efficient long-range, low-power data communication in air quality networks.</li>
+                        <li>**Solar Power Units (optional):** Supported by Solar Power solutions to facilitate energy autonomy in remote ambient monitoring installations.</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-xl hover-scale">
+                    <h3 class="text-2xl font-bold mb-4 text-blue-700 border-b pb-2">Software & Cloud Platform</h3>
+                    <img src="https://images.unsplash.com/photo-1516321315098-417b5cd5a83a?q=80&w=2070&auto=format&cover" alt="Data Dashboard" class="w-full h-48 object-cover rounded-lg mb-6">
+                    <ul class="list-disc pl-5 text-gray-700 space-y-3">
+                        <li>**User-Friendly Dashboard:** Intuitive visualization tools with live air quality index updates, alerts, and data analytics.</li>
+                        <li>**Custom Alert Triggers:** Define thresholds and receive instant notifications via SMS/email for proactive risk management.</li>
+                        <li>**Data Logging & Export:** Easy access to historical records in standard formats for in-depth analysis and regulatory reporting.</li>
+                        <li>**Over-the-Air Updates:** Ensures long-term scalability and security with remote software maintenance.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-16 fade-in">
+            <h2 class="text-4xl font-bold mb-8 text-center text-gray-800">Key Features & Functionalities</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-md hover-scale text-center">
+                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=400&auto=format&fit=cover" alt="Real-time monitoring" class="w-full h-32 object-cover rounded-t-xl mb-4">
+                    <p class="text-gray-700 font-semibold">Real-time monitoring of multiple pollutants and meteorological parameters.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md hover-scale text-center">
+                    <img src="https://images.unsplash.com/photo-1518609878373-06d740f60d8b?q=80&w=400&auto=format&fit=cover" alt="Modular design" class="w-full h-32 object-cover rounded-t-xl mb-4">
+                    <p class="text-gray-700 font-semibold">Modular design for easy component upgrades and future-proofing.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md hover-scale text-center">
+                    <img src="https://images.unsplash.com/photo-1580587771525-78b9f0f89f76?q=80&w=400&auto=format&fit=cover" alt="Smart alerts" class="w-full h-32 object-cover rounded-t-xl mb-4">
+                    <p class="text-gray-700 font-semibold">Smart alerts and threshold breach notifications for immediate action.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md hover-scale text-center">
+                    <img src="https://images.unsplash.com/photo-1516321315098-417b5cd5a83a?q=80&w=400&auto=format&fit=cover" alt="Calibration" class="w-full h-32 object-cover rounded-t-xl mb-4">
+                    <p class="text-gray-700 font-semibold">Advanced calibration routines for enhanced data accuracy and reliability.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md hover-scale text-center">
+                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=400&auto=format&fit=cover" alt="Data visualization" class="w-full h-32 object-cover rounded-t-xl mb-4">
+                    <p class="text-gray-700 font-semibold">Historical data visualization and trend analytics for strategic planning.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md hover-scale text-center">
+                    <img src="https://images.unsplash.com/photo-1518609878373-06d740f60d8b?q=80&w=400&auto=format&fit=cover" alt="Software updates" class="w-full h-32 object-cover rounded-t-xl mb-4">
+                    <p class="text-gray-700 font-semibold">Seamless cloud and API integration with third-party platforms and government portals.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-16 fade-in">
+            <div class="grid md:grid-cols-2 gap-10">
+                <div>
+                    <h2 class="text-3xl font-bold mb-4 text-gray-800">Seamless Integrations</h2>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white p-4 rounded-lg shadow-md hover:bg-blue-50 transition">Smart City Platforms</div>
+                        <div class="bg-white p-4 rounded-lg shadow-md hover:bg-blue-50 transition">Environmental Compliance Portals</div>
+                        <div class="bg-white p-4 rounded-lg shadow-md hover:bg-blue-50 transition">Building Management Systems (BMS)</div>
+                        <div class="bg-white p-4 rounded-lg shadow-md hover:bg-blue-50 transition">Industrial SCADA Systems</div>
+                        <div class="bg-white p-4 rounded-lg shadow-md hover:bg-blue-50 transition">GIS and Mapping Interfaces</div>
+                        <div class="bg-white p-4 rounded-lg shadow-md hover:bg-blue-50 transition">Traffic Corridor Emission Analysis</div>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-3xl font-bold mb-4 text-gray-800">System Compatibility</h2>
+                    <ul class="list-disc pl-5 text-lg text-gray-700 space-y-2 bg-white p-6 rounded-xl shadow-md">
+                        <li>Full support for Windows and Linux-based environments</li>
+                        <li>Dedicated mobile platforms (iOS and Android) for remote access</li>
+                        <li>Secure integration with major cloud platforms: AWS, Azure, and Google Cloud</li>
+                    </ul>
+                    <h2 class="text-3xl font-bold mt-8 mb-4 text-gray-800">Regulatory Standards</h2>
+                    <ul class="list-disc pl-5 text-lg text-gray-700 space-y-2 bg-white p-6 rounded-xl shadow-md">
+                        <li>U.S. EPA 40 CFR Part 58 & National Ambient Air Quality Standards (NAAQS)</li>
+                        <li>Clean Air Act (CAA) Compliance</li>
+                        <li>Environment and Climate Change Canada (ECCC) Guidelines & Canadian Ambient Air Quality Standards (CAAQS)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-16 fade-in bg-white p-10 rounded-xl shadow-2xl">
+            <h2 class="text-4xl font-bold mb-8 text-center text-gray-800">Core Business Benefits</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+                <div class="p-4 border-l-4 border-blue-600 shadow-md hover:shadow-lg transition">
+                    <p class="text-xl font-bold text-blue-700">Compliance</p>
+                    <p class="text-gray-600">Meet all local and federal environmental standards.</p>
+                </div>
+                <div class="p-4 border-l-4 border-blue-600 shadow-md hover:shadow-lg transition">
+                    <p class="text-xl font-bold text-blue-700">Proactive Insights</p>
+                    <p class="text-gray-600">Real-time data to prevent air quality incidents.</p>
+                </div>
+                <div class="p-4 border-l-4 border-blue-600 shadow-md hover:shadow-lg transition">
+                    <p class="text-xl font-bold text-blue-700">Efficiency</p>
+                    <p class="text-gray-600">Automate data collection, reporting, and diagnostics.</p>
+                </div>
+                <div class="p-4 border-l-4 border-blue-600 shadow-md hover:shadow-lg transition">
+                    <p class="text-xl font-bold text-blue-700">Trust</p>
+                    <p class="text-gray-600">Promote community confidence with public transparency.</p>
+                </div>
+                <div class="p-4 border-l-4 border-blue-600 shadow-md hover:shadow-lg transition">
+                    <p class="text-xl font-bold text-blue-700">Scalability</p>
+                    <p class="text-gray-600">Deploy systems across single or multiple locations seamlessly.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="case-studies" class="mb-16 fade-in">
+            <h2 class="text-4xl font-bold mb-8 text-center text-gray-800">Success Stories & Case Studies</h2>
+            <div class="slideshow bg-white p-8 shadow-2xl">
+                <div class="slide active">
+                    <img src="https://images.unsplash.com/photo-1516321315098-417b5cd5a83a?q=80&w=2070&auto=format&fit=cover" alt="City Monitoring" class="w-full h-80 object-cover rounded-lg mb-6 shadow-lg">
+                    <h3 class="text-2xl font-bold text-blue-700 mb-2">City of Los Angeles: Urban Air Quality Network</h3>
+                    <p class="text-lg text-gray-700">The City of Los Angeles partnered with Enviro Test Solutions to deploy over 100 ambient air quality sensors across residential and industrial zones. The real-time data helped city officials reduce pollution hotspots and enforce zoning laws. The integration with the city’s smart infrastructure platform enabled predictive analytics for air quality forecasting.</p>
+                </div>
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=2070&auto=format&fit=cover" alt="Industrial Compliance" class="w-full h-80 object-cover rounded-lg mb-6 shadow-lg">
+                    <h3 class="text-2xl font-bold text-blue-700 mb-2">Industrial Compliance in Houston, TX</h3>
+                    <p class="text-lg text-gray-700">A major petrochemical company used our systems to maintain compliance with EPA emission regulations. Our automated alerts and remote calibration helped reduce manual inspections by 60%. As a result, the client successfully passed multiple federal environmental audits.</p>
+                </div>
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1518609878373-06d740f60d8b?q=80&w=2070&auto=format&fit=cover" alt="Mining Operation" class="w-full h-80 object-cover rounded-lg mb-6 shadow-lg">
+                    <h3 class="text-2xl font-bold text-blue-700 mb-2">Mining Operation in Northern Ontario</h3>
+                    <p class="text-lg text-gray-700">Enviro Test Solutions worked with a mining company to deploy a ruggedized monitoring system in a remote location. Using solar-powered sensors with LoRaWAN, the system collected 24/7 air quality data, which was streamed to their Toronto headquarters via our secure cloud platform. The deployment met all Environment and Climate Change Canada (ECCC) standards.</p>
+                </div>
+            </div>
+            <div class="flex justify-center mt-6 space-x-4">
+                <button id="prevSlide" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition font-semibold shadow-md">← Previous</button>
+                <button id="nextSlide" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition font-semibold shadow-md">Next →</button>
+            </div>
+        </section>
+
+        <section id="contact" class="mb-16 fade-in text-center bg-white p-12 rounded-xl shadow-2xl border-t-4 border-blue-600">
+            <h2 class="text-4xl font-bold mb-4 text-gray-800">Interested in Upgrading Your Environmental Monitoring Capabilities?</h2>
+            <p class="text-xl text-gray-700 mb-8 max-w-3xl mx-auto">Looking to ensure regulatory compliance or enhance air quality awareness? Let Enviro Test Solutions help you take control. Speak with our experts or request a custom solution tailored to your needs.</p>
+            <a href="mailto:info@envirotestsolutions.com" class="bg-blue-600 text-white px-10 py-4 rounded-full font-bold uppercase text-lg shadow-lg hover:bg-blue-700 transition hover-scale inline-block">Contact Our Experts Today</a>
+        </section>
+    </main>
+
+    <button id="scrollToTop" class="bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 transition">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+    </button>
+
+    <footer class="bg-blue-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 border-b border-blue-800 pb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-blue-300">Enviro Test Solutions</h3>
+                    <p class="text-gray-400 mb-4">Providing scalable, cloud-integrated air quality monitoring solutions for industries and municipalities across North America.</p>
+                    <p class="text-gray-500 text-sm">© 2025 Enviro Test Solutions. All rights reserved.</p>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-blue-300">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="hover:text-blue-300 transition">Home</a></li>
+                        <li><a href="#features" class="hover:text-blue-300 transition">Features</a></li>
+                        <li><a href="#case-studies" class="hover:text-blue-300 transition">Case Studies</a></li>
+                        <li><a href="#contact" class="hover:text-blue-300 transition">Contact</a></li>
+                        <li><a href="#" class="hover:text-blue-300 transition">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-blue-300">Contact Us</h3>
+                    <p class="text-gray-400 mb-2">Email: <a href="mailto:info@envirotestsolutions.com" class="hover:text-blue-300 transition">info@envirotestsolutions.com</a></p>
+                    <p class="text-gray-400 mb-2">Phone: +1 (800) 123-4567</p>
+                    <p class="text-gray-400">Address: 123 Environmental Way, Toronto, ON, Canada</p>
+                    <div class="mt-4 flex space-x-4">
+                        <a href="https://twitter.com" target="_blank" class="hover:text-blue-300 transition" aria-label="Twitter"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+                        <a href="https://linkedin.com" target="_blank" class="hover:text-blue-300 transition" aria-label="LinkedIn"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.024-3.037-1.85-3.037-1.85.001-2.132 1.447-2.132 2.941v5.665H9.356V9.5h3.414v1.561h.048c.476-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.93-2.063-2.077s.919-2.077 2.063-2.077 2.063.93 2.063 2.077c0 1.147-.919 2.077-2.063 2.077zm1.777 13.019H3.56V9.5h3.554v10.952zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.226.792 24 1.771 24h20.451C23.2 24 24 23.226 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+                        <a href="https://facebook.com" target="_blank" class="hover:text-blue-300 transition" aria-label="Facebook"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-blue-300">Our Location</h3>
+                    <div class="w-full h-48 rounded-lg shadow-xl overflow-hidden border-2 border-blue-600">
+                        <a href="https://www.google.com/maps" target="_blank">
+                            <img src="https://via.placeholder.com/300x200?text=View+on+Google+Maps" alt="Map Placeholder" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Intersection Observer for enhanced fade-in animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // Stop observing once visible
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
+        });
+
+        // Case Studies Slideshow functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slideshow .slide');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                }
+            });
+        }
+
+        document.getElementById('nextSlide').addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        });
+
+        document.getElementById('prevSlide').addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            showSlide(currentSlide);
+        });
+
+        // Auto slideshow
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }, 6000); // 6 second auto-slide
+
+        // Scroll to Top Button
+        const scrollToTop = document.getElementById('scrollToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                scrollToTop.classList.add('visible');
+            } else {
+                scrollToTop.classList.remove('visible');
+            }
+        });
+
+        scrollToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Initialize the first slide
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
